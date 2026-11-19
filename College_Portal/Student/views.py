@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Student_table
-
-
+from.forms import Student_form_data
 def home(request):
     data = {
         'name': 'Neela',
@@ -50,6 +49,7 @@ def Student_form_dj(request):
             return HttpResponse("Saved Successfully!")
         else:
             return HttpResponse("Invalid Data")
+        
     else:
         form=Student_form_data()
         return render(request,'Student_form_data.html',{'form:form'})
