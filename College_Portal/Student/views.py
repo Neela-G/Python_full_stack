@@ -1,7 +1,10 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Student_table
-from.forms import Student_form_data
+from .forms import Student_form_data
+
+
 def home(request):
     data = {
         'name': 'Neela',
@@ -38,18 +41,23 @@ def form(request):
         return HttpResponse("Saved Successfully!")
 
     return render(request, 'Student_form.html')
+
+
 def Student_form_dj(request):
-    if request.method=="POST":
-        form=Student_form_data(request.POST)
+    if request.method == "POST":
+        form = Student_form_data(request.POST)
+
         if form.is_valid():
-            reg_no1=form.cleaned_data['reg_no1']
-            name1=form.cleaned_data['name1']
-            email1=form.cleaned_data['email1']
+            reg_no1 = form.cleaned_data['reg_no1']
+            name1 = form.cleaned_data['name1']
+            email1 = form.cleaned_data['email1']
 
             return HttpResponse("Saved Successfully!")
+
         else:
             return HttpResponse("Invalid Data")
-        
+
     else:
-        form=Student_form_data()
-        return render(request,'Student_form_data.html',{'form:form'})
+        form = Student_form_data()
+
+    return render(request, 'Student_form_data.html', {'form': form})
