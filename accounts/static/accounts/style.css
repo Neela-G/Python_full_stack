@@ -1,0 +1,207 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f7fc;
+    color: #26344a;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+h1 {
+    color: #123b70;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #174b83;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #087bca;
+    margin: 15px 0;
+}
+
+p {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+button {
+    background: #1769aa;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #104d83;
+    transform: translateY(-2px);
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0 18px;
+    border: 1px solid #d4deeb;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #1769aa;
+    box-shadow: 0 0 0 3px #1769aa20;
+}
+
+a {
+    color: #1769aa;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    margin: 15px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #152d4a10;
+}
+
+th {
+    background: #174b83;
+    color: white;
+    padding: 16px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+tr:hover td {
+    background: #f1f7ff;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 25px 0;
+}
+
+.error, .success {
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+}
+
+.success {
+    background: #e6f8ef;
+    color: #167343;
+}
+
+.error {
+    background: #fff0f0;
+    color: #bd3030;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px #152d4a12;
+    margin-bottom: 22px;
+}
+
+.auth-card {
+    max-width: 430px;
+    margin: 65px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 35px #152d4a15;
+}
+
+.navbar {
+    background: #123b70;
+    color: white;
+    padding: 18px 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 15px;
+}
+
+.balance-card {
+    background: linear-gradient(120deg, #123b70, #2185c5);
+    color: white;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+}
+
+.balance-card h2,
+.balance-card h3 {
+    color: white;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        margin-right: 12px;
+    }
+
+    .card, .auth-card {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,90 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Dashboard</title>
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="navbar">
+        <h2 style="color:white;">MyBank</h2>
+        <div>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'transactions' %}">Transactions</a>
+        </div>
+    </div>
+
+    <h1>Welcome, {{ request.user.username }}!</h1>
+    <p>Here's your account overview.</p>
+
+    <div class="balance-card">
+        <p>Available Balance</p>
+        <h2>₹ {{ account.balance }}</h2>
+        <p>Account Number: {{ account.account_number }}</p>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{% if message.tags == 'success' %}success{% else %}error{% endif %}">
+                {{ message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    <div class="card">
+        <h2>Deposit Money</h2>
+
+        <form method="POST" action="{% url 'deposit' %}">
+            {% csrf_token %}
+
+            <input type="number"
+                   name="amount"
+                   placeholder="Enter deposit amount"
+                   min="0.01"
+                   step="0.01"
+                   required>
+
+            <button type="submit">Deposit Money</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Withdraw Money</h2>
+
+        <form method="POST" action="{% url 'withdraw' %}">
+            {% csrf_token %}
+
+            <input type="number"
+                   name="amount"
+                   placeholder="Enter withdrawal amount"
+                   min="0.01"
+                   step="0.01"
+                   required>
+
+            <button type="submit">Withdraw Money</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Transaction History</h2>
+        <p>View all your deposits and withdrawals.</p>
+
+        <a href="{% url 'transactions' %}">
+            View Transactions →
+        </a>
+    </div>
+
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+
+</div>
+
+</body>
+</html>
